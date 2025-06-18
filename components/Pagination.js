@@ -6,14 +6,13 @@ const itemsPerPage = 10;
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentNews, setCurrentNews] = useState([])
-  console.log(currentPage)
   const totalPage = Math.ceil(newsData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
     useEffect(()=>{
         const partial = newsData.slice(startIndex, endIndex);
         setCurrentNews(partial)
-    },[currentPage])
+    },[currentPage , setCurrentPage])
   return (
     <div>
       <ul className="card-container">
