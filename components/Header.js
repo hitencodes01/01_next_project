@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchNews from "./SearchNews";
 
 export default function Header() {
   return (
@@ -17,6 +18,9 @@ export default function Header() {
         </li>
         <li>
           <Link href={"/about"}>About</Link>
+        </li>
+        <li>
+          <Link href={"/search"}>Search</Link>
         </li>
       </ul>
     </div>

@@ -8,7 +8,6 @@ export default function News() {
   return (
     <div>
         <Header />
-        <p>News Page</p>
         <Category />
         <Footer />
     </div>
