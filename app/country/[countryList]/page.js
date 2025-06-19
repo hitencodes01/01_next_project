@@ -9,14 +9,12 @@ export default async function CountryList({params}) {
     console.log(news)
   return (
     <div>
-      <Header />
         <h1>Country : {countryList.toUpperCase()}</h1>
         <ul className={styles["card-container"]} >
             {news.map(item => <li key={item.id}>
               <Card title={item.title} body={item.body} category={item.category} />
             </li>)}
         </ul>
-        <Footer/>
     </div>
   )
 }

@@ -7,9 +7,7 @@ export const metadata ={
 export default function News() {
   return (
     <div>
-        <Header />
         <Category />
-        <Footer />
     </div>
   )
 }

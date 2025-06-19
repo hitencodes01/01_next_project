@@ -8,13 +8,11 @@ export default async function CategoryTypes({params}) {
   const filteredNews = newsData.filter(item => item.category === categoryTypes)
   return (
     <div>
-      <Header />
       <h1 className="header-1">Category : {categoryTypes.toUpperCase()}</h1>
       {/* <SearchNews newsData={filteredNews} /> */}
       <ul className="card-container">
         {filteredNews.map(item => <Card title={item.title} body={item.body} category={item.category} key={item.id} />)}
       </ul>
-      <Footer />
     </div>
   )
 }
