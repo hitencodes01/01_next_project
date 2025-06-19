@@ -22,6 +22,8 @@ export default function Pagination() {
               title={items.title}
               body={items.body}
               category={items.category}
+              date={items.date}
+              country={items.country}
               key={items.id}
             />
           </li>

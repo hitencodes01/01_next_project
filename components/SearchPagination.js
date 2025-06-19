@@ -7,8 +7,7 @@ export default function SearchPagination() {
   const [query, setQuery] = useState("");
   const [filteredNews, setFilteredNews] = useState([]);
   const itemsPerPage = 10;
-  const totalPage = Math.ceil(newsData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
+
 
   //   filtering news
   useEffect(() => {
@@ -22,6 +21,8 @@ export default function SearchPagination() {
   }, [query]);
 
   //   rendering news after filter
+  const totalPage = Math.ceil(filteredNews.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedNews = filteredNews.slice(
     startIndex,
     startIndex + itemsPerPage
@@ -29,6 +30,15 @@ export default function SearchPagination() {
   return (
     <div>
       <div>
+        {filteredNews.length > 0 ? (
+          <p className="mb-4 text-sm text-gray-600">
+            🔎 Found {filteredNews.length} result(s) for "
+            <strong>{query}</strong>"
+          </p>
+        ) : (
+          <p className="mb-4 text-red-500 text-sm">No results found.</p>
+        )}
+
         <div className="search-bar">
           <label htmlFor="searchInput">Search</label>
           <input
@@ -42,7 +52,10 @@ export default function SearchPagination() {
         <CardContainer data={paginatedNews} />
       </div>
       {filteredNews.length > 0 && (
-        <div className="p-2 flex justify-center gap-4" style={{backgroundColor:"#0f172a"}}>
+        <div
+          className="p-2 flex justify-center gap-4"
+          style={{ backgroundColor: "#0f172a" }}
+        >
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

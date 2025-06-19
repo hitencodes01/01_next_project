@@ -21,6 +21,9 @@ export default function Footer() {
           <li>
             <Link href={"/about"}>About</Link>
           </li>
+          <li>
+            <Link href={"/category"}>Category</Link>
+          </li>
         </ul>
       </div>
       <p className="text-center text-gray-400 text-sm mt-4">
