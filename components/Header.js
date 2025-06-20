@@ -1,30 +1,19 @@
 import Link from "next/link";
-import SearchNews from "./SearchNews";
 
 export default function Header() {
   return (
-    <div className="flex justify-between bg-amber-500 px-10 py-5 items-center">
-      <div className="text-3xl">Digital News</div>
-      <ul className="flex gap-8 text-white font-semibold text-lg">
-        <li>
-          <Link href={"/"}>Home</Link>
-        </li>
-        <li>
-          <Link href={"/news"}>News</Link>
-        </li>
-        <li>
-          <Link href={"/contact"}>Contact</Link>
-        </li>
-        <li>
-          <Link href={"/about"}>About</Link>
-        </li>
-        <li>
-          <Link href={"/search"}>Search</Link>
-        </li>
-        <li>
-          <Link href={"/category"}>Category</Link>
-        </li>
-      </ul>
+    <div className="bg-amber-500 px-4 py-3 shadow-md">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between items-center gap-3">
+        <div className="text-2xl font-bold text-white">Digital News</div>
+        <ul className="flex flex-wrap justify-center gap-3 md:gap-6 text-white font-semibold text-sm md:text-base">
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/news">News</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/search">Search</Link></li>
+          <li><Link href="/category">Category</Link></li>
+        </ul>
+      </div>
     </div>
   );
 }
