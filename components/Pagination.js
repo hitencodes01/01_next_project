@@ -1,7 +1,7 @@
 "use client";
 import newsData from "@/data/newsData";
 import { useEffect, useState } from "react";
-import Card from "./Card";
+import CardContainer from "./CardContainer";
 const itemsPerPage = 10;
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,26 +15,12 @@ export default function Pagination() {
     },[currentPage , setCurrentPage])
   return (
     <div>
-      <ul className="card-container">
-        {currentNews.map((items) => (
-          <li key={items.id}>
-            <Card
-              title={items.title}
-              body={items.body}
-              category={items.category}
-              date={items.date}
-              country={items.country}
-              key={items.id}
-            />
-          </li>
-        ))}
-      </ul>
-      <br />
-      <div className="mt-6 flex justify-center gap-4">
+      <CardContainer data={currentNews} />
+      <div className="flex justify-center gap-4 mb-4">
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((prev) => Math.max(prev-1 , 1)) }
-          className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 text-black"
+          className="px-4 py-2 bg-gray-500 hover:bg-gray-600 rounded transition disabled:opacity-50 focus:ring focus:ring-offset-2"
         >
           ⬅️ Prev
         </button>
@@ -47,7 +33,7 @@ export default function Pagination() {
           onClick={() =>
             setCurrentPage((prev) => Math.min(prev + 1, totalPage))
           }
-          className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 text-black"
+          className="px-4 py-2 bg-gray-500 hover:bg-gray-600 rounded transition disabled:opacity-50 focus:ring focus:ring-offset-2"
         >
           ➡️ Next
         </button>

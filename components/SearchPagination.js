@@ -8,7 +8,6 @@ export default function SearchPagination() {
   const [filteredNews, setFilteredNews] = useState([]);
   const itemsPerPage = 10;
 
-
   //   filtering news
   useEffect(() => {
     const data = newsData.filter(
@@ -40,12 +39,11 @@ export default function SearchPagination() {
         )}
 
         <div className="search-bar">
-          <label htmlFor="searchInput">Search</label>
           <input
-            type="text"
             value={query}
-            id="searchInput"
-            placeholder="search for ..."
+            type="text"
+            placeholder="Search news..."
+            className="w-full max-w-md border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
@@ -59,7 +57,7 @@ export default function SearchPagination() {
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 text-black"
+            className="px-4 py-2 bg-gray-500 hover:bg-gray-600 rounded transition disabled:opacity-50 focus:ring focus:ring-offset-2"
           >
             ⬅️ Prev
           </button>
@@ -72,7 +70,7 @@ export default function SearchPagination() {
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPage))
             }
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50 text-black"
+            className="px-4 py-2 bg-gray-500 hover:bg-gray-600 rounded transition disabled:opacity-50 focus:ring focus:ring-offset-2"
           >
             ➡️ Next
           </button>

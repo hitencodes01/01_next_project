@@ -1,5 +1,8 @@
 import newsData from "@/data/newsData";
 import Link from "next/link";
+export const metadata ={
+  title:"Category"
+}
 export default function Category() {
   const uniqueCategories = [...new Set(newsData.map((item) => item.category))];
   return (
